@@ -4,8 +4,7 @@
 
 ## Q: How can I access the admin menu?
 
-## A: 
-Pressing `\` will bring up the admin menu.  
+## A: Pressing `\` will bring up the admin menu.  
 
 If you are on a QWERTY keyboard with a different layout, you may be required to use `Insert` on your keyboard.  
 
