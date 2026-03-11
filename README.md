@@ -89,6 +89,14 @@ VEIN does not currently support RCON.
 * **Clear Config:** Temporarily move your `Saved/Config` folder to the desktop and restart to see if a corrupted `.ini` file is the cause.
 * **Update Drivers:** Ensure your GPU drivers are up to date (Windows/Linux).
 
+### **Q:** How do I run a console command on my multiplayer server?
+* **Admin privledges:** You can access your multiplayer server's admin and console menu by first adding the `steam64id` of the player to the `Game.ini` file, into either the `AdminSteamIDs` or `SuperAdmin` values
+* **Admin Menu vs Console:** You can access the console using the `~` developer options, but most commands will not work without first appending the `ServerExec` prefix to the command.  It is recommended that you use the game's `Admin Menu`, which can typically be accessed using the `\` or `Insert` keys.
+
+`vein.AISpawner.SpawnCapMultiplierZombie=5` - as an example this would set your AI's zombie multiplier slider to 5x
+
+This can also be adjusted manually by accessing the `Engine.ini` file within your server's file configuration location.
+
 ---
 
 <a name="reporting"></a>
