@@ -1,5 +1,5 @@
 ***
-# VEIN: Frequently Asked Questions & Server Guide
+# VEIN: Frequently Asked Questions & Server Guide (Unofficial)
 ![Vein, the game](assets/header.jpg)
   
 ### Quick Navigation
@@ -35,19 +35,28 @@ There are four (4) files located in the `Saved` path of your game client/server 
 ---
 
 <a name="locations"></a>
-## 📂 Configuration File Locations
+## 📂 Vein File Locations
 
+<a name="locationclientconfigs"></a>
 ### **Q:** Where are the (client) configuration files located?
 * **Windows:** `..\steamapps\common\Vein\Vein\Saved\Config\Windows`
 * **Linux:** `../steamapps/common/Vein\Vein\Saved\Config\Linux`
 
+<a name="locationserverfile"></a>
 ### **Q:** Where are my (server) configuration files located?
 * **Windows:** `..\steamapps\common\Vein\Vein\Saved\Config\WindowsServer`
 * **Linux:** `../steamapps/common/Vein\Vein\Saved\Config\LinuxServer`
 
+<a name="locationlogfile"></a>
 ### **Q:** Where are my `.log` files located?
 * **Windows:** `..\steamapps\common\Vein\Vein\Saved\Logs\`
 * **Linux:** `../steamapps/common/Vein\Vein\Saved\Logs/`
+
+<a name="locationlocalmovies"></a>
+### **Q:** Where are my local movie files located, so that I can play them in the television/projector?
+* Your game installation path on both the Windows or Linux client, will contain the location for the game's movie selection.
+  * **Linux:** `../steamapps/common/Vein/Vein/Content/Movies/`
+  * **Windows:** `..\steamapps\common\Vein\Vein\Content\Movies\`
 
 ---
 
@@ -63,14 +72,17 @@ There are four (4) files located in the `Saved` path of your game client/server 
 
 ---
 
+<a name="serverapiremotemgmt"></a>
 ## 🌐 Server API & Remote Management
 
+<a name="httpapi"></a>
 ### **Q:** How do I enable and use the game server's HTTP API?
 The API allows for real-time monitoring of server data (Time, Weather, Players).
 * Enable the API in your `Engine.ini` under the `[/Script/Vein.VeinHTTPServer]` section.
 * Set your desired port (default is `8089`).
 * You can query data using tools like `curl` or build custom dashboards to visualize server status, character profiles, and weather (temperature/wind direction).
 
+<a name="rcon"></a>
 ### **Q:** How can I send commands remotely (RCON)?
 VEIN does not currently support RCON.
 * Please refer to the `#vein-modding` channel on the official Discord for more information on administration tools.
@@ -81,16 +93,19 @@ VEIN does not currently support RCON.
 <a name="troubleshooting"></a>
 ## ⚠️ Common Troubleshooting
 
+<a name="serverbrowserappearing"></a>
 ### **Q:** My server isn't appearing in the server browser. Why?
 * **Port Forwarding:** Ensure the game port (`7777`) and query port (`27015`) are open on your router/firewall.
 * **IP Binding:** Unless you have a specific reason not to, check that your `Engine.ini` is correctly bound to all interfaces using `DefaultBindAddress = 0.0.0.0`.
 * **Version Mismatch:** Ensure both the server and your client are on the same branch (e.g., both on Experimental). 
 
+<a name="startupcrashes"></a>
 ### **Q:** The game crashes on startup or when loading a save.
 * **Verify Integrity:** *Right-click* the game in `Steam > Properties > Installed Files > Verify Integrity of Game Files`.
 * **Clear Config:** Temporarily move your `Saved/Config` folder to the desktop and restart to see if a corrupted `.ini` file is the cause.
 * **Update Drivers:** Ensure your GPU drivers are up to date (Windows/Linux).
 
+<a name="multiplayercommands"></a>
 ### **Q:** How do I run a console command on my multiplayer server?
 * **Admin privledges:** You can access your multiplayer server's admin and console menu by first adding the `steam64id` of the player to the `Game.ini` file, into either the `AdminSteamIDs` or `SuperAdmin` values
 * **Admin Menu vs Console:** You can access the console using the `~` developer options, but most commands will not work without first appending the `ServerExec` prefix to the command.  It is recommended that you use the game's `Admin Menu`, which can typically be accessed using the `\` or `Insert` keys.
@@ -98,6 +113,7 @@ VEIN does not currently support RCON.
 `vein.AISpawner.SpawnCapMultiplierZombie=5` - as an example this would set your AI's zombie multiplier slider to 5x
 This can also be adjusted manually by accessing the `Engine.ini` file within your server's file configuration location.
 
+<a name="televisionprojectormp4"></a>
 ### **Q:** How do I use the television or projector with `.mp4` files?
 * Select the television/projector, then `Examine Connections` and add electricity from any electricity source such as a panel on the wall, a generator.
 * **For URL:**
@@ -108,10 +124,15 @@ This can also be adjusted manually by accessing the `Engine.ini` file within you
   *   * Select your source by changing it to `File`, then click on `Select URL or file`.  You will see a list of any file ending with an `.mp4` extension from the path your movie files are located in.  
   * Turn the television from the Off to the On position
   * Press the `Play` button near the top of your television/projector menu, or switch your source until you are able to select `File`
-* **Notes regarding `.mp4` playback:**
-*
-* The current implementation of the server and client code have varying effects and a few reported bugs relating to television and projector playback.  We encourage you to visit the developer's Discord server and to [report any suggestions or bugs there, or through the game's feedback system](#reporting)
+* **Notes and limitations regarding `.mp4` playback:**
+  * Not every `.mp4` file will work correctly within Vein, due to issues relating to codecs or malformed files.
+  * There are known playback issues with the native Linux libraries, using Proton (hotfix) works in some instances.
+  * The current implementation of the server and client code have varying effects and a few reported bugs relating to television and projector playback.  **We encourage you to visit the developer's Discord server and to [report any suggestions or bugs there, or through the game's feedback system](#reporting)**
+* **Notes on multi-player:**
+  * If you are playing with friends, all of you must have the same access to the URL.  Playback and timing may not be in synch.
+  * When trying to play a local file, all of you must have the same `.mp4` files within your [Vein `Movies` location]()
 
+<a name="tvprojectorcamera"></a>
 ### **Q:** How do I use the television or projector with security cameras?
 **Required:**  Adding electricity to both the camera and television **is required.**
 * Install your security camera.
@@ -126,14 +147,9 @@ This can also be adjusted manually by accessing the `Engine.ini` file within you
     * *If you don't immediately see the camera feed*, switch your source until you've selected `Camera` again.
 **More than one camera:**
   * If you intend on having more than a single camera, you can select between the cameras and select through them with the `Next Camera` and `Previous Camera` options.
-
-### **Q:** Where are my local movie files located, so that I can play them in the television/projector?
-* Your game installation path on both the Windows or Linux client, will contain the location for the game's movie selection.
-  * **Linux:** `../steamapps/common/Vein/Vein/Content/Movies/`
-  * **Windows:** `..\steamapps\common\Vein\Vein\Content\Movies\`
+**Notes on video and audio playback file formats:**
 * All files must end in either `.mp4`, `.webm`, `.mp3`
 * Other formats may work such as `.mkv` and `.avi` but are currently unsupported/tested.
-
 ---
 
 <a name="commonabbreviations"></a>
@@ -152,7 +168,7 @@ This can also be adjusted manually by accessing the `Engine.ini` file within you
 
 #### **In-Game Feedback**
 While in-game, press `Esc` to enter your menu and select **Feedback**. Use this for map bugs, floating textures, or immediate issues.
-![Vein, the game](assets/image.png)
+![Vein, the game](assets/feedback-example.png)
 
 #### **Discord Reports**
 Join the official VEIN Discord and create a ticket under `#vein-bug-reports`. 
