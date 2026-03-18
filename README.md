@@ -1,6 +1,7 @@
 ***
 # VEIN: Frequently Asked Questions & Server Guide
-  ![Vein, the game](header.jpg)
+![Vein, the game](assets/header.jpg)
+  
 ### Quick Navigation
 * [Server/Client Configurations](#configurations)
 * [File Locations](#locations)
@@ -151,6 +152,7 @@ This can also be adjusted manually by accessing the `Engine.ini` file within you
 
 #### **In-Game Feedback**
 While in-game, press `Esc` to enter your menu and select **Feedback**. Use this for map bugs, floating textures, or immediate issues.
+![Vein, the game](assets/image.png)
 
 #### **Discord Reports**
 Join the official VEIN Discord and create a ticket under `#vein-bug-reports`. 
