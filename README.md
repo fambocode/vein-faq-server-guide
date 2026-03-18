@@ -150,6 +150,11 @@ This can also be adjusted manually by accessing the `Engine.ini` file within you
 **Notes on video and audio playback file formats:**
 * All files must end in either `.mp4`, `.webm`, `.mp3`
 * Other formats may work such as `.mkv` and `.avi` but are currently unsupported/tested.
+
+### **Q:** Are there any free movies or television I can stream to my television?
+
+### **A:** Yes.  There are thousands of places to link any URL ending with a `.mp4` including websites such as WebArchives. ![We've curated and hand selected a few that are known to play and fit within the theme of playing a game such as Vein](public-domain-mp4-list.md)
+
 ---
 
 <a name="commonabbreviations"></a>
@@ -173,6 +178,6 @@ While in-game, press `Esc` to enter your menu and select **Feedback**. Use this 
 #### **Discord Reports**
 Join the official VEIN Discord and create a ticket under `#vein-bug-reports`. 
 * For crashes, flag the report with `[Crash!!]`.
-* Always upload your `Vein.log` file from the `Saved/Logs` folder.
+* Always upload your `Vein.log` file from the [`Saved/Logs` folder.](#locationlogfile)
 
 ***
