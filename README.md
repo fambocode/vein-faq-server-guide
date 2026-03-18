@@ -95,7 +95,6 @@ VEIN does not currently support RCON.
 * **Admin Menu vs Console:** You can access the console using the `~` developer options, but most commands will not work without first appending the `ServerExec` prefix to the command.  It is recommended that you use the game's `Admin Menu`, which can typically be accessed using the `\` or `Insert` keys.
 
 `vein.AISpawner.SpawnCapMultiplierZombie=5` - as an example this would set your AI's zombie multiplier slider to 5x
-
 This can also be adjusted manually by accessing the `Engine.ini` file within your server's file configuration location.
 
 ### **Q:** How do I use the television or projector with `.mp4` files?
@@ -108,16 +107,24 @@ This can also be adjusted manually by accessing the `Engine.ini` file within you
   *   * Select your source by changing it to `File`, then click on `Select URL or file`.  You will see a list of any file ending with an `.mp4` extension from the path your movie files are located in.  
   * Turn the television from the Off to the On position
   * Press the `Play` button near the top of your television/projector menu, or switch your source until you are able to select `File`
+* **Notes regarding `.mp4` playback:**
+*
+* The current implementation of the server and client code have varying effects and a few reported bugs relating to television and projector playback.  We encourage you to visit the developer's Discord server and to [report any suggestions or bugs there, or through the game's feedback system](#reporting)
 
 ### **Q:** How do I use the television or projector with security cameras?
-* Adding electricity from any electricity source such as a panel on the wall, a generator, to both your camera and television **is required**.
-  * Install your security camera.
-  * Select the camera, `Examine Connections` and connect it to an electrical source.
-    * Select the television/projector, `Examine Connections` and connect it to an electrical source.
-    * Select the camera, `Examine Connections` and connect it to an electrical source.
-  * Select the television, then change your source to `Camera`
-  * At the bottom of the television menu, select `Add Camera` and connect it to the security camera.
-    * The camera has a short default range, you can adjust this within your [`Engine.ini` file](#locations)
+**Required:**  Adding electricity to both the camera and television **is required.**
+* Install your security camera.
+  * Select the camera:
+    * `Examine Connections` and connect it to an electrical source.
+      * Select the television/projector, `Examine Connections` and connect it to an electrical source.
+      * Select the camera, `Examine Connections` and connect it to an electrical source.
+  * Select the television:
+    * Change your source to `Camera`
+    * At the bottom of the television menu, select `Add Camera` and connect it to the security camera.
+      * The camera has a short default range, *you can adjust this* within your [`Engine.ini` file](#locations)
+    * *If you don't immediately see the camera feed*, switch your source until you've selected `Camera` again.
+**More than one camera:**
+  * If you intend on having more than a single camera, you can select between the cameras and select through them with the `Next Camera` and `Previous Camera` options.
 
 ### **Q:** Where are my local movie files located, so that I can play them in the television/projector?
 * Your game installation path on both the Windows or Linux client, will contain the location for the game's movie selection.
